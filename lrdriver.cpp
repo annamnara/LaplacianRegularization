@@ -57,19 +57,12 @@ if(strcmp(paramName,"noClasses")==0)
 lr.noClasses=atoi(paramValue);
 
 
-if(strcmp(paramName,"noitr")==0)
-lr.noIterations=atoi(paramValue);
-
-if(strcmp(paramName,"algoChoice")==0)
-lr.algoChoice=atoi(paramValue);
-
-if(strcmp(paramName,"alpha")==0)
-lr.alpha=atof(paramValue);
 
 }
  
 }
-cout<< "params are: "<< "No. of Exmaples"<<lr.noExamples<<" \t"<< " Weight filename:"<< lr.weightFile<<"\t"<< "Iterations:"<<lr.noIterations<< "\t"<<lr.alpha<<endl;
+
+cout<< "params are: "<< "No. of Exmaples"<<lr.noExamples<<" \t"<< " Weight filename:"<< lr.weightFile<<endl;
 
 
 lr.LoadWeightMatrix();
