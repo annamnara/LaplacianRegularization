@@ -1,0 +1,112 @@
+# include "GraphConstruction.hpp"
+# include "StringUtilities.hpp"
+# include <sstream> 
+# include<iostream>
+# include <fstream>
+# include <string>
+# include <cstring>
+# include <vector>
+# include <stdlib.h>
+# include <algorithm>
+# include <iterator>
+# include <cstdlib>
+# include <cmath>
+# include <iterator>
+#include <ctime>  
+# include <queue>
+# include "sort.h"
+using namespace std;
+LabelPropagation::LabelPropagation()
+{
+
+}
+
+
+void LabelPropagation::LoadWeightMatrix()
+
+{
+StringUtilities su;
+fstream myweightfile(&filename[0]);
+
+WeightMatrix = new double* [noExamples];
+for(int i = 0; i < rows; ++i) {
+    WeightMatrix[i] = new double[noExamples];
+}
+string str;
+double dummy=0.0;
+int nr=0;
+while(getline(myweightfile,str)){
+   double  *p;
+   p= su.SplitString(str,dummy); 
+   for ( int i = 0; i < noExamples; i++ ) {
+        WeightMatrix[nr][i]=*(p+i);
+   }
+  nr++;
+  delete p;
+
+}
+}
+
+void	LabelPropagation::TransitionMatrixCal(){
+
+double rowSum=0.0;
+for (int r=0; r<noExamples; r++){
+   for (int c=0; c<noExamples;c++) {
+     rowSum=rowSum+WeightMatrix[r][c];
+}
+   for(int l=0;l<noExamples;l++) 
+   TransitionMatrix[r][l]=WeightMatrix[r][l] / rowSum;
+  rowSum=0.0;
+
+}
+}
+
+}
+
+void LabelPropagation::DisplayWeightMatrix()
+{
+
+
+cout<< "Displaying WeightMatrix"<< endl;
+
+for(int i=0;i<rows;i++){
+
+    for (int j=0;j<rows;j++){
+
+          cout<< WeightMatrix[i][j]<<"\t";
+
+
+
+ }
+cout<< "\n";
+
+}
+
+}
+
+
+
+void LabelPropagation::DisplayTransitionMatrix()
+{
+
+
+cout<< "Displaying TransitionMatrix"<< endl;
+
+for(int i=0;i<rows;i++){
+
+    for (int j=0;j<rows;j++){
+
+          cout<< TransitionMatrix[i][j]<<"\t";
+
+
+
+ }
+cout<< "\n";
+
+}
+
+}
+
+
+
+

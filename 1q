@@ -1,0 +1,33 @@
+#include "stdafx.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include "linalg.h"
+
+using namespace alglib;
+
+
+int main(int argc, char **argv)
+{
+    int a1[2][2]={{1,0},{0,1}}
+   // real_2d_array a = "[[1,0],[0,1]]";
+     real_2d_array a;
+     a.setlength(2,2);
+     
+  for(int i=0;i<2;i++){
+ for(int j=0;j<2;j++){
+
+a(i,j)=a[i][j];
+
+}
+
+}
+
+ 
+   ae_int_t info;
+    matinvreport rep;
+    spdmatrixinverse(a, info, rep);
+    printf("%d\n", int(info)); // EXPECTED: 1
+    printf("%s\n", a.tostring(4).c_str()); // EXPECTED: [[0.666666,-0.333333],[-0.333333,0.666666]]
+    return 0;
+}

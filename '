@@ -1,0 +1,15 @@
+# Weight  File Name 
+weightFile string weight.txt
+
+# Label  File Name 
+labelFile string label.txt
+
+# No of Examples
+noExamples int 500
+
+# Labelling rate
+lbr int 95
+
+# Labelling rate
+noitr int 1
+

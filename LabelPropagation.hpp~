@@ -1,0 +1,22 @@
+# include <iostream>
+# include <string>
+using namespace std;
+class  LabelPropagation
+{
+
+public:
+double 	**WeightMatrix;
+double 	**TransitionMatrix;
+
+int 	noExamples;
+string 	weightFile;
+string  labelFile;
+string 	methodChoice;
+	LabelPropagation();
+void 	LoadWeightMatrix();
+void	TransitionMatrixCal();
+
+
+};
+
+  
