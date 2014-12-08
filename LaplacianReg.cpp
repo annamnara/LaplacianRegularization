@@ -205,27 +205,6 @@ void LaplacianReg::PrepareYMatrix()
 
 IndexMatrix=new int[noExamples];
 OrgYVector=new int[noExamples];
-OrgYMatrix = new double* [noExamples];
-IpYMatrix = new double* [noExamples];
-ActYMatrix = new double* [noExamples];
-Y0Matrix = new double* [noExamples];
-
-
-for(int i = 0; i < noExamples; ++i) {
-   OrgYMatrix[i] = new double[noClasses];
-   IpYMatrix[i] = new double[noClasses];
-   ActYMatrix[i] = new double[noClasses];
-   Y0Matrix[i] = new double[noClasses];
-}
-
-for (int i=0;i<noExamples;i++){
-for (int j=0;j<noClasses;j++){
-OrgYMatrix[i][j]=0.0;
-IpYMatrix[i][j]=0.0;
-ActYMatrix[i][j]=0.0;
-Y0Matrix[i][j]=0.0;
-}
-}
 
 fstream mylabelfile(&IplabelFile[0]);
 
@@ -234,15 +213,10 @@ int r=0;
 while(getline(mylabelfile,str)){
 
 char *x=&str[0];
-OrgYMatrix[r][atoi(x)-1]=1;
-IpYMatrix[r][atoi(x)-1]=1;
-Y0Matrix[r][atoi(x)-1]=1;
 IndexMatrix[r]=r;
 OrgYVector[r]=atoi(x);
 r++;
-
 }
-
 
 }
 
@@ -481,30 +455,13 @@ filafile<<-1<<"\n";
 
 }
 */
-void    LaplacianReg::DisplayActYMatrix(){
- 
-cout<< "DISPLAYING ACT  Y MATRIX"<< endl;
-for (int i=0; i<noExamples;i++){
-for (int j=0; j<noClasses;j++){
-cout<< ActYMatrix[i][j]<<"\t ";
 
-}
-
-cout<< "\n";
-
-}
-
-}
-
-void LaplacianReg::DisplayOrgYMatrix()
+void LaplacianReg::DisplayOrgYVector()
 {
 
 cout<< "DISPLAYING ORG  Y MATRIX"<< endl;
 for (int i=0; i<noExamples;i++){
- for (int j=0; j<noClasses;j++){
-cout<< OrgYMatrix[i][j]<<"\t ";
-//cout<<IpYMatrix[i][j]<<"\t" ;
-}
+cout<< OrgYVector[i]<<"\t ";
 cout<< "\n";
 }
 }

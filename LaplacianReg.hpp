@@ -14,9 +14,6 @@ double 	**ELTMatrix;
 double 	**tempEEMatrix;
 double 	*tempEVector;
 double 	*acoefVector;
-double	**OrgYMatrix;
-double	**IpYMatrix;
-double	**ActYMatrix;
 double	**Y0Matrix;
 int 	*IndexMatrix;
 int 	*OrgYVector;
@@ -46,8 +43,7 @@ void	DisplayNormLaplacianMatrix();
 
 
 void 	PrepareYMatrix();
-void 	DisplayOrgYMatrix();
-void	DisplayActYMatrix();
+void 	DisplayOrgYVector();
 
 
 void	RunAlgorithm();

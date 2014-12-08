@@ -85,12 +85,11 @@ lr.NormLaplacianMatrixCal();
 
 
 lr.PrepareYMatrix();
-//lr.DisplayOrgYMatrix();
+//lr.DisplayOrgYVector);
 
 
 lr.RunAlgorithm();
 //lr.WriteOutput();
-//lr.DisplayActYMatrix();
 
 }
 
